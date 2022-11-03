@@ -1,0 +1,55 @@
+@use "variables" as *;
+
+.room-card {
+  width: 100%;
+  max-width: 395px;
+
+  .room__img {
+    width: 100%;
+    border-radius: 24px;
+  }
+
+  .room__details {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: $clr-gray-600;
+
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border: 1px solid;
+      border-radius: 12px;
+    }
+
+    .type {
+      color: $clr-gray-400;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: auto;
+
+      .material-symbols-rounded {
+        font-size: 20px;
+        font-variation-settings: "FILL" 1;
+        color: $clr-primary;
+      }
+    }
+  }
+
+  .room__title {
+    font-weight: 600;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 80%;
+    color: $clr-gray-700;
+    overflow: hidden;
+  }
+}
