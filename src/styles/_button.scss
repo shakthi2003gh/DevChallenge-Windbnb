@@ -1,0 +1,14 @@
+@use "variables" as *;
+
+.btn--primary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: capitalize;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 16px;
+  color: white;
+  background: $clr-primary;
+  opacity: 0.9;
+}
