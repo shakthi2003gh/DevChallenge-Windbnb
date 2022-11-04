@@ -1,0 +1,26 @@
+@use "variables" as *;
+
+.count {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90px;
+  font-size: 18px;
+  font-weight: 700;
+  color: $clr-gray-700;
+
+  button {
+    display: grid;
+    place-content: center;
+    width: 23px;
+    border: 1px solid;
+    border-radius: 4px;
+    color: $clr-gray-400;
+    background: transparent;
+
+    &:disabled {
+      opacity: 0.8;
+      background: $clr-white-400;
+    }
+  }
+}
