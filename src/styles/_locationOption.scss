@@ -1,0 +1,22 @@
+@use "variables" as *;
+@use "mixin" as *;
+
+.location-option {
+  display: grid;
+  gap: 20px;
+  width: 85%;
+  margin: 2rem auto;
+  @include container();
+
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 1;
+      color: $clr-gray-600;
+    }
+  }
+}
