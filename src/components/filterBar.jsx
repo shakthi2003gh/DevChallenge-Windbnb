@@ -1,6 +1,9 @@
-const Filter = ({ props }) => {
-  const { currentLocation, state, setCurrentOption } = props;
-
+const Filter = ({
+  currentLocation,
+  state,
+  setCurrentOption,
+  setCurrentLocation,
+}) => {
   const { adults, children } = state;
 
   return (
@@ -11,6 +14,12 @@ const Filter = ({ props }) => {
         onFocus={() => setCurrentOption("location")}
       >
         <div className="label">loaction</div>
+        <span
+          className="material-symbols-outlined reset"
+          onClick={() => setCurrentLocation("Filter By Location")}
+        >
+          close
+        </span>
         <div className="current-location">{currentLocation}</div>
       </div>
 

@@ -8,8 +8,6 @@ const RoomCard = ({ room }) => {
     superHost,
   } = room || { img: "", type: "", rating: 0, title: "" };
 
-  console.log(room);
-
   return (
     <div className="room-card">
       <img className="room__img" src={img} alt="" />

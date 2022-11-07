@@ -23,11 +23,30 @@
   }
 
   .location {
+    position: relative;
     border-bottom: 2px solid $clr-white-400;
+
+    .reset {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      font-size: 20px;
+      padding: 0.15em;
+      border-radius: 100vh;
+      color: $clr-white-400;
+      background-color: $clr-gray-700;
+      transform: translateY(-50%);
+      transition: opacity 0.25s ease-in;
+      opacity: 0;
+    }
 
     &:focus {
       border-top-left-radius: inherit;
       border-top-right-radius: inherit;
+
+      .reset {
+        opacity: 0.8;
+      }
     }
   }
 

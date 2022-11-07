@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use "mixin" as *;
 
 .filter-group {
   display: flex;
@@ -17,12 +18,21 @@
     padding-inline: 14px;
   }
 
+  .location {
+    @include no-textoverflow();
+  }
+
   .guests {
     display: grid;
     place-content: center;
+    width: 80px;
     height: 100%;
     border-inline: 1px solid $clr-white-400;
     color: $clr-gray-300;
+
+    span {
+      @include no-textoverflow();
+    }
   }
 
   .material-symbols-outlined {

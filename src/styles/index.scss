@@ -1,6 +1,74 @@
+@use "variables" as *;
+@use "mixin" as *;
 @forward "normalize";
+@forward "filterGroup";
+@forward "filterSlider";
+@forward "roomCard";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Mulish:wght@400;700;800&display=swap");
 
 body {
   font-family: "Montserrat", sans-serif;
+  padding-inline: 12px;
+  @include container();
+}
+
+main .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $clr-gray-600;
+
+  h1 {
+    font-size: 24px;
+    margin: 0;
+    color: $clr-gray-700;
+  }
+}
+
+header {
+  display: flex;
+  gap: 35px;
+  flex-wrap: wrap;
+  margin-block: 22px 37px;
+
+  .filter-group {
+    margin-inline: auto;
+  }
+
+  @media (min-width: 455px) {
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    margin-block: 2rem 4rem;
+
+    .filter-group {
+      margin-inline: 0;
+    }
+  }
+}
+
+.rooms {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  place-items: center;
+  gap: 2rem;
+  margin-block: 2rem;
+}
+
+.no-stays {
+  font-size: 2rem;
+  margin-top: 3rem;
+  color: $clr-gray-700;
+}
+
+.no-overflow {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.drop-shadow {
+  position: fixed;
+  inset: 0;
+  background-color: $bg-drop;
+  z-index: 45;
 }

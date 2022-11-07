@@ -1,6 +1,6 @@
 import Count from "./count";
 
-const GuestOption = ({ dispatch }) => {
+const GuestOption = ({ state, dispatch }) => {
   const handleCountChange = (type, count) => {
     dispatch({ type, count });
   };
@@ -15,6 +15,7 @@ const GuestOption = ({ dispatch }) => {
 
         <Count
           min={1}
+          value={state.adults}
           onCount={(count) => handleCountChange("set-adults", count)}
         />
       </div>
@@ -24,7 +25,10 @@ const GuestOption = ({ dispatch }) => {
           <div className="rules">Ages 2-12</div>
         </div>
 
-        <Count onCount={(count) => handleCountChange("set-children", count)} />
+        <Count
+          value={state.children}
+          onCount={(count) => handleCountChange("set-children", count)}
+        />
       </div>
     </div>
   );

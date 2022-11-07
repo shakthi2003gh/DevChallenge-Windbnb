@@ -23,10 +23,10 @@ function reducer(state, action) {
   }
 }
 
-const FilterSlider = () => {
-  const [currentLocation, setCurrentLocation] = useState("Helsinki, Finland");
+const FilterSlider = ({ filterState, onSearch, onClose }) => {
+  const [currentLocation, setCurrentLocation] = useState(filterState.location);
   const [currentOption, setCurrentOption] = useState("location");
-  const [state, dispatch] = useReducer(reducer, { adults: 1, children: 0 });
+  const [state, dispatch] = useReducer(reducer, filterState.guest);
   const locations = [
     "Helsinki, Finland",
     "Turku, Finland",
@@ -34,7 +34,12 @@ const FilterSlider = () => {
     "Vaasa, Finland",
   ];
 
-  const FilterProps = { currentLocation, state, setCurrentOption };
+  const FilterProps = {
+    currentLocation,
+    state,
+    setCurrentOption,
+    setCurrentLocation,
+  };
   const locationProps = { locations, setCurrentLocation };
 
   return (
@@ -42,16 +47,20 @@ const FilterSlider = () => {
       <div className="header">
         <div className="title">Edit your search</div>
 
-        <span className="material-symbols-outlined close">close</span>
+        <span className="material-symbols-outlined close" onClick={onClose}>
+          close
+        </span>
       </div>
 
-      <Filter props={FilterProps} />
+      <Filter {...FilterProps} />
 
       {currentOption === "location" && <LocationOption props={locationProps} />}
 
-      {currentOption === "guests" && <GuestOption dispatch={dispatch} />}
+      {currentOption === "guests" && (
+        <GuestOption state={filterState.guest} dispatch={dispatch} />
+      )}
 
-      <Button />
+      <Button onClick={() => onSearch(currentLocation, state)} />
     </div>
   );
 };
